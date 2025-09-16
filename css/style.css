@@ -254,3 +254,12 @@ html, body {
 footer {
   margin-top: auto; /* Faz o rodapé descer quando a página for curta */
 }
+
+@media (max-width: 480px) {
+  body::before,
+  body::after,
+  .circulo-extra {
+    display: none;
+  }
+}
+
