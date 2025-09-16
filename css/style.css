@@ -1,1 +1,256 @@
+:root {
+  --fundo: #f0e9d8;
+  --destaque: #c46735;
+  --titulo: #5c8673;
+  --texto: #3c2e22;
+  --rodape: #83a294;
+ 
+}
 
+/* Reset básico e configurações globais */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', 'Quicksand', 'Comfortaa', cursive, sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
+  margin: 0;
+  padding: 0;
+  cursor: url('../imagens/patinha32.png'), auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Cabeçalho */
+header {
+  background-color: var(--destaque);
+  color: #fff9ee;
+  text-align: center;
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+/* Navegação */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+nav button {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--titulo);
+  transition: background 0.3s;
+  flex: 1;
+  min-width: 120px;
+}
+
+nav button:hover,
+nav button.active {
+  background-color: #e4d4c4;
+  font-weight: bold;
+}
+
+/* Conteúdo principal */
+.conteudo {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding:  0 1rem;;
+  background-color: #e4d4c4; /* Agora usa a variável definida */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+/* Imagens */
+img {
+  display: block;
+  max-width: 20%;
+  height: auto;
+  border-radius: 10px;
+  margin: 1rem auto;
+}
+
+/* Rodapé */
+footer {
+  background-color: var(--rodape);
+  color: white;
+  text-align: center;
+  max-width: 1000px; /*largura do rodapé*/
+  margin: 2rem auto;
+  border-radius: 50px;
+}
+
+/* Redes Sociais */
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.redes-sociais a {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.4rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.redes-sociais a:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  filter: brightness(1.1);
+}
+
+/* Cores específicas das redes sociais */
+.redes-sociais .instagram { background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF); }
+.redes-sociais .facebook   { background-color: #1877F2; }
+.redes-sociais .tiktok     { background-color: #000000; }
+.redes-sociais .whatsapp   { background-color: #25D366; }
+.redes-sociais .youtube    { background-color: #FF0000; }
+
+/* Animação de fade-in para o conteúdo */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  img {
+    max-width: 60%; /* Imagens maiores em tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Estilos para celulares (media query combinada) */
+  img {
+    max-width: 80%; /* Imagens ainda maiores em celulares */
+  }
+
+  .conteudo {
+    padding: 1.2rem; /* Padding do conteúdo reduzido */
+  }
+
+  nav {
+    flex-direction: column; /* Botões de navegação empilhados */
+  }
+
+  .redes-sociais {
+    gap: 10px; /* Espaçamento entre ícones de redes sociais reduzido */
+  }
+
+  .redes-sociais a {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem; /* Ícones de redes sociais menores */
+  }
+
+  footer p {
+    font-size: 0.9rem; /* Texto do rodapé menor */
+  }
+}
+
+body {
+  position: relative;
+  overflow-x: hidden; /* Evita barra lateral por causa dos círculos */
+}
+
+/* Círculo laranja MAIOR com gradiente */
+body::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #fbbd08, #c46735);
+  border-radius: 50%;
+  top: -120px;
+  left: -120px;
+  opacity: 0.25;
+  z-index: -1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: flutuar 10s ease-in-out infinite;
+}
+
+/* Círculo verde */
+body::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #5c8673);
+  border-radius: 50%;
+  bottom: -120px;
+  right: -120px;
+  opacity: 0.25;
+  z-index: -1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: flutuar 12s ease-in-out infinite reverse;
+}
+
+/* Círculo azul (adicional, aparece no meio) */
+.circulo-extra {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, #3b82f6, #1e3a8a);
+  border-radius: 50%;
+  top: 50%;
+  left: 60%;
+  opacity: 0.25;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: flutuar 8s ease-in-out infinite alternate;
+}
+
+/* Animação suave para os círculos */
+@keyframes flutuar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+html, body {
+  height: 100%;
+}
+
+.pagina {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+footer {
+  margin-top: auto; /* Faz o rodapé descer quando a página for curta */
+}
